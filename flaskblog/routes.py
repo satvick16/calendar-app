@@ -28,13 +28,13 @@ def new_event():
                            form=form, legend='New Event')
 
 
-@app.route("/post/<int:event_id>")
+@app.route("/event/<int:event_id>")
 def event(event_id):
     event = Event.query.get_or_404(event_id)
     return render_template('event.html', title=event.title, event=event)
 
 
-@app.route("/post/<int:post_id>/update", methods=['GET', 'POST'])
+@app.route("/event/<int:event_id>/update", methods=['GET', 'POST'])
 @login_required
 def update_event(event_id):
     event = Event.query.get_or_404(event_id)
@@ -54,7 +54,7 @@ def update_event(event_id):
 
 @app.route("/event/<int:event_id>/delete", methods=['POST'])
 @login_required
-def delete_post(post_id):
+def delete_post(event_id):
     event = Event.query.get_or_404(post_id)
     db.session.delete(event)
     db.session.commit()

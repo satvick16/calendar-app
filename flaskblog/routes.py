@@ -15,7 +15,6 @@ def home():
 
 
 @app.route("/new-event", methods=['GET', 'POST'])
-@login_required
 def new_event():
     form = EventForm()
     if form.validate_on_submit():
@@ -35,7 +34,6 @@ def event(event_id):
 
 
 @app.route("/event/<int:event_id>/update", methods=['GET', 'POST'])
-@login_required
 def update_event(event_id):
     event = Event.query.get_or_404(event_id)
     form = EventForm()
@@ -53,7 +51,6 @@ def update_event(event_id):
 
 
 @app.route("/event/<int:event_id>/delete", methods=['POST'])
-@login_required
 def delete_post(event_id):
     event = Event.query.get_or_404(post_id)
     db.session.delete(event)

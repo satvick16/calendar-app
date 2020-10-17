@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 {% block content %}
   <article class="media content-section">
     <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
@@ -10,7 +10,10 @@
         </div>
       </div>
       <h2 class="article-title">{{ event.title }}</h2>
-      <p class="article-content">{{ event.content }}</p>
+      <p class="article-content">{{ event.date }}</p>
+      <p class="article-content">{{ event.start_time }}</p>
+      <p class="article-content">{{ event.end_time }}</p>
+      <p class="article-content">{{ event.repeat }}</p>
     </div>
   </article>
   <!-- Modal -->
@@ -18,7 +21,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+          <h5 class="modal-title" id="deleteModalLabel">Delete Event?</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

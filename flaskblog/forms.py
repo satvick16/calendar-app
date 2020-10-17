@@ -5,5 +5,8 @@ from wtforms.validators import DataRequired
 
 class EventForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
-    content = TextAreaField('Content', validators=[DataRequired()])
+    date = StringField('Date', validators=[DataRequired()])
+    start_time = StringField('Start Time', validators=[DataRequired()])
+    end_time = StringField('End Time', validators=[DataRequired()])
+    repeat = StringField('Repeat', validators=[DataRequired()])
     submit = SubmitField('Post')
